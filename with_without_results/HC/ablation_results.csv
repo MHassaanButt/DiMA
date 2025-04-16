@@ -1,0 +1,9 @@
+experiment,test_accuracy
+DiMA_with_all,0.17371007800102234
+DiMA_no_memory,0.9863446354866028
+DiMA_no_enhancement,0.9783197045326233
+DiMA_no_tokenization,0.3558506667613983
+DiMA_no_dropout,0.9080970287322998
+DiMA_no_tokenization_no_enhancement,0.8403551578521729
+DiMA_no_enhancement_no_memory,0.9852271676063538
+DiMA_baseline,0.8557578921318054

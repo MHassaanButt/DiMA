@@ -1,4 +1,0 @@
-[ZoneTransfer]
-ZoneId=3
-ReferrerUrl=https://202.115.73.19:32206/index.html
-HostUrl=https://202.115.73.19:32206/api/istorage/v1/file/download?filePath=%2F2023220014%2Fhb%2Fhsic%2Fbaseline_models_for_hsic%2Fcomparision_with_different_attentions%2FHC%2FHC_0.9_15_14_PCA_Classification_Report_DiMAMamba.csv&fileModel=2&storageName=master&X-Auth-Token=e6903d50-7f41-47f1-b037-5338e6782a72&X-Time-Zone=8
