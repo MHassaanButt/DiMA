@@ -82,7 +82,7 @@ parser.add_argument(
     "--dataset",
     "-d",
     type=str,
-    choices=["LK", "HC", "HH", "Qingyun", "Pingan", "Tangdaowan"],
+    choices=["HC", "HH", "Pingan", "Tangdaowan"],
     default="PU",
     help="Dataset identifier",
 )
@@ -116,27 +116,7 @@ args = parser.parse_args()
 ## Loading Hyperspectral Datasets
 def LoadHSIData(method):
     data_path = os.path.join(os.getcwd(), "../datasets/")
-    if method == "LK":
-        ## http://rsidea.whu.edu.cn/resource_WHUHi_sharing.htm
-        HSI = sio.loadmat(os.path.join(data_path, "WHU_Hi_LongKou.mat"))[
-            "WHU_Hi_LongKou"
-        ]
-        GT = sio.loadmat(os.path.join(data_path, "WHU_Hi_LongKou_gt"))[
-            "WHU_Hi_LongKou_gt"
-        ]
-        Num_Classes = 9
-        target_names = [
-            "Corn",
-            "Cotton",
-            "Sesame",
-            "Broad-leaf soybean",
-            "Narrow-leaf soybean",
-            "Rice",
-            "Water",
-            "Roads and houses",
-            "Mixed weed",
-        ]
-    elif method == "HH":
+    if method == "HH":
         ## http://rsidea.whu.edu.cn/resource_WHUHi_sharing.htm
         HSI = sio.loadmat(os.path.join(data_path, "WHU_Hi_HongHu.mat"))["WHU_Hi_HongHu"]
         GT = sio.loadmat(os.path.join(data_path, "WHU_Hi_HongHu_gt"))[
@@ -194,176 +174,7 @@ def LoadHSIData(method):
             "Bright object",
             "Water",
         ]
-    elif method == "SLA":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabSalinasA_corrected.mat"))[
-            "salinasA_corrected"
-        ]
-        GT = sio.loadmat(os.path.join(data_path, "ColabSalinasA_gt.mat"))["salinasA_gt"]
-        val_old = np.array([0, 1, 10, 11, 12, 13, 14])
-        val_new = np.array([0, 1, 2, 3, 4, 5, 6])
-        index = np.digitize(GT.ravel(), val_old, right=True)
-        GT = val_new[index].reshape(GT.shape)
-        Num_Classes = 6
-        target_names = [
-            "Brocoli 1",
-            "Corn weeds",
-            "Lettuce 4wk",
-            "Lettuce 5wk",
-            "Lettuce 6wk",
-            "Lettuce 7wk",
-        ]
-    elif method == "SA":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabSalinas_corrected.mat"))[
-            "salinas_corrected"
-        ]
-        GT = sio.loadmat(os.path.join(data_path, "ColabSalinas_gt.mat"))["salinas_gt"]
-        Num_Classes = 16
-        target_names = [
-            "Weeds_1",
-            "Weeds_2",
-            "Fallow",
-            "Fallow_rough_plow",
-            "Fallow_smooth",
-            "Stubble",
-            "Celery",
-            "Grapes_untrained",
-            "Soil_vinyard_develop",
-            "Corn_Weeds",
-            "Lettuce_4wk",
-            "Lettuce_5wk",
-            "Lettuce_6wk",
-            "Lettuce_7wk",
-            "Vinyard_untrained",
-            "Vinyard_trellis",
-        ]
-    elif method == "IP":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabIndian_pines_corrected.mat"))[
-            "indian_pines_corrected"
-        ]
-        GT = sio.loadmat(os.path.join(data_path, "ColabIndian_pines_gt.mat"))[
-            "indian_pines_gt"
-        ]
-        Num_Classes = 16
-        target_names = [
-            "Alfalfa",
-            "Corn-notill",
-            "Corn-mintill",
-            "Corn",
-            "Grass-pasture",
-            "Grass-trees",
-            "Grass-mowed",
-            "Hay-windrowed",
-            "Oats",
-            "Soybean-notill",
-            "Soybean-mintill",
-            "Soybean-clean",
-            "Wheat",
-            "Woods",
-            "Buildings",
-            "Stone-Steel",
-        ]
-    elif method == "BS":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabBotswana.mat"))["Botswana"]
-        GT = sio.loadmat(os.path.join(data_path, "ColabBotswana_gt.mat"))["Botswana_gt"]
-        Num_Classes = 14
-        target_names = [
-            "Water",
-            "Hippo Grass",
-            "Floodplain Grasses 1",
-            "Floodplain Grasses 2",
-            "Reeds 1",
-            "Riparian",
-            "Firescar 2",
-            "Island Interior",
-            "Woodlands",
-            "Acacia Shrublands",
-            "Acacia Grasslands",
-            "Short Mopane",
-            "Mixed Mopane",
-            "Exposed Soils",
-        ]
-    elif method == "PU":
-        HSI = sio.loadmat(os.path.join(data_path, "PaviaU.mat"))["paviaU"]
-        GT = sio.loadmat(os.path.join(data_path, "PaviaU_gt.mat"))["paviaU_gt"]
-        Num_Classes = 9
-        target_names = [
-            "Asphalt",
-            "Meadows",
-            "Gravel",
-            "Trees",
-            "Painted",
-            "Soil",
-            "Bitumen",
-            "Bricks",
-            "Shadows",
-        ]
-    elif method == "KSC":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabKSC.mat"))["KSC"]
-        GT = sio.loadmat(os.path.join(data_path, "ColabKSC_gt.mat"))["KSC_gt"]
-        Num_Classes = 13
-        target_names = [
-            "Scrub",
-            "Willow Swamp",
-            "CP/Oak",
-            "CP hammock",
-            "Slash Pine",
-            "Oak/Broadleaf",
-            "Hardwood Swamp",
-            "Graminoid Marsh",
-            "Spartina Marsh",
-            "Cattail Marsh",
-            "Salt Marsh",
-            "Mud Flats",
-            "Water",
-        ]
-    elif method == "PC":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabPavia.mat"))["pavia"]
-        GT = sio.loadmat(os.path.join(data_path, "ColabPavia_gt.mat"))["pavia_gt"]
-        Num_Classes = 9
-        target_names = [
-            "Water",
-            "Trees",
-            "Asphalt",
-            "Bricks",
-            "Bitumen",
-            "Tiles",
-            "Shadows",
-            "Meadows",
-            "Soil",
-        ]
-    elif method == "UH":
-        HSI = sio.loadmat(os.path.join(data_path, "ColabHU.mat"))["HSI"]
-        GT = sio.loadmat(os.path.join(data_path, "ColabHU_gt.mat"))["gt"]
-        Num_Classes = 15
-        target_names = [
-            "Healthy grass",
-            "Stressed grass",
-            "Synthetic grass",
-            "Trees",
-            "Soil",
-            "Water",
-            "Residential",
-            "Commercial",
-            "Road",
-            "Highway",
-            "Railway",
-            "Parking Lot 1",
-            "Parking Lot 2",
-            "Tennis Court",
-            "Running Track",
-        ]
-    elif method == "Qingyun":
-        HSI = sio.loadmat(os.path.join(data_path, "QUH-Qingyun.mat"))["Chengqu"]
-        GT = sio.loadmat(os.path.join(data_path, "QUH-Qingyun_GT.mat"))["ChengquGT"]
-        Num_Classes = 6
-        target_names = [
-            "Trees",
-            "Concrete building",
-            "Car",
-            "Ironhide building",
-            "Plastic playground",
-            "Asphalt road",
-        ]
+
     elif method == "Pingan":
         HSI = sio.loadmat(os.path.join(data_path, "QUH-Pingan.mat"))["Haigang"]
         GT = sio.loadmat(os.path.join(data_path, "QUH-Pingan_GT.mat"))["HaigangGT"]
@@ -677,7 +488,7 @@ adam = tf.keras.optimizers.legacy.Adam(lr=0.0001, decay=1e-06)
 k = args.number_of_bands
 epochs = args.epochs
 batch_size = args.batch_size
-output_dir = os.path.join(f"sample_viz_results/{HSID}/")
+output_dir = os.path.join(f"gt_viz/{HSID}/")
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
