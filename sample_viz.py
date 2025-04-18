@@ -606,36 +606,36 @@ axs.imshow(GT, cmap=cmap_obj, norm=norm)
 # Hide everything: no title, no axis labels, no ticks
 axs.set_xticks([]), axs.set_yticks([])
 
-# Legend using circular markers instead of rectangles
-legend_patches = [
-    Line2D(
-        [0],
-        [0],
-        marker="o",
-        color="w",
-        markerfacecolor=cmap_obj(norm(i)),
-        markersize=6,
-        label=target_names[i - 1],
-    )
-    for i in unique_classes
-]
+# # Legend using circular markers instead of rectangles
+# legend_patches = [
+#     Line2D(
+#         [0],
+#         [0],
+#         marker="o",
+#         color="w",
+#         markerfacecolor=cmap_obj(norm(i)),
+#         markersize=6,
+#         label=target_names[i - 1],
+#     )
+#     for i in unique_classes
+# ]
 
-# Compact legend on the right side of the TrueMap
-fig.legend(
-    handles=legend_patches,
-    loc="center right",
-    ncol=1,
-    fontsize=4,
-    frameon=False,
-    handlelength=3,
-    # columnspacing=0.8,
-)
+# # Compact legend on the right side of the TrueMap
+# fig.legend(
+#     handles=legend_patches,
+#     loc="center right",
+#     ncol=1,
+#     fontsize=4,
+#     frameon=False,
+#     handlelength=3,
+#     # columnspacing=0.8,
+# )
 
 # Tighten spacing and adjust layout to remove white space
 # plt.subplots_adjust(left=0.01, right=0.85, top=0.90, bottom=0.25)
 
 # Save the figure
-file_name = f"{HSID}_{teRatio}_{vrRatio}_{k}_{WS}_TrueMap_with_Legend_Circles.png"
+file_name = f"{HSID}_{teRatio}_{vrRatio}_{k}_{WS}_GT.png"
 plt.savefig(
     os.path.join(output_dir, file_name),
     dpi=500,
