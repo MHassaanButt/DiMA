@@ -4,3 +4,5 @@ model_components_abilation.py
 .ipynb_checkpoints
 .ipynb_checkpoints
 *.h5
+DiMA_nootbook.ipynb
+sample_viz.py
