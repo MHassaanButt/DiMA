@@ -8,17 +8,17 @@ This repository contains code and data associated with the paper:
 ```
 ├── dataset/
 │   ├── HH/                  # Houston Hyperspectral dataset
-│   │   ├── dataset.mat      # HSI data cube
-│   │   └── gt.mat           # Ground truth labels
+│   │   ├── WHU_Hi_HongHu.mat      # HSI data cube
+│   │   └── WHU_Hi_HongHu_gt.mat           # Ground truth labels
 │   ├── HC/                  # Houston Urban dataset
-│   │   ├── dataset.mat
-│   │   └── gt.mat
+│   │   ├── WHU_Hi_HanChuan.mat
+│   │   └── WHU_Hi_HanChuan_gt.mat
 │   ├── Tangdaowan/          # QUH-Tangdaowan UAV dataset
-│   │   ├── dataset.mat
-│   │   └── gt.mat
+│   │   ├── QUH-Tangdaowan.mat
+│   │   └── QUH-Tangdaowan_GT.mat
 │   └── Pingan/              # QUH-Pingan UAV dataset
-│       ├── dataset.mat
-│       └── gt.mat
+│       ├── QUH-Pingan.mat
+│       └── QUH-Pingan_GT.mat
 ├── ablations/               # Ablation study results
 │   ├── patch_sizes/         # Results for different patch (window) sizes
 │   ├── training_ratios/     # Results for different train/val/test splits
@@ -34,11 +34,11 @@ This repository contains code and data associated with the paper:
 
 Please download the hyperspectral datasets and place them in the corresponding subfolders under `dataset/` before running any scripts:
 
-- **Houston Hyperspectral Dataset (HH & HC)**
-  - 2013 IEEE GRSS Data Fusion Contest: https://ieee-dataport.org/open-access/2013-ieee-grss-data-fusion-contest-data
+- **Wahuan Hyperspectral Dataset (HH & HC)**
+  - RSIDEA research group of Wuhan University: [https://rsidea.whu.edu.cn/resource_WHUHi_sharing.htm]
 
 - **Qingdao UAV-borne HSI (QUH) Dataset**
-  - GitHub repository (Tangdaowan, Qingyun, Pingan): https://github.com/Hang-Fu/QUH-classification-dataset
+  - Qingdao UAV-borne HSI (Tangdaowan, Qingyun, Pingan): [https://eod-grss-ieee.com/dataset-detail/WUpwZEd5Ukd0Tk5PZ0pmajRYTWJoUT09]
 
 After downloading, each dataset folder should contain two files:
 - `dataset.mat` — the hyperspectral image cube (height × width × bands)
