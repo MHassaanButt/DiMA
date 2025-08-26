@@ -1,0 +1,38 @@
+{
+    "initial_training_samples": 2138,
+    "initial_Train_class_counts": {
+        "class_0": 331,
+        "class_1": 932,
+        "class_2": 105,
+        "class_3": 153,
+        "class_4": 67,
+        "class_5": 251,
+        "class_6": 67,
+        "class_7": 184,
+        "class_8": 48
+    },
+    "initial_validation_samples": 2139,
+    "initial_Val_class_counts": {
+        "class_0": 332,
+        "class_1": 933,
+        "class_2": 105,
+        "class_3": 153,
+        "class_4": 67,
+        "class_5": 252,
+        "class_6": 66,
+        "class_7": 184,
+        "class_8": 47
+    },
+    "Test_samples": 38499,
+    "class_Test_counts": {
+        "class_0": 5968,
+        "class_1": 16784,
+        "class_2": 1889,
+        "class_3": 2758,
+        "class_4": 1211,
+        "class_5": 4526,
+        "class_6": 1197,
+        "class_7": 3314,
+        "class_8": 852
+    }
+}
