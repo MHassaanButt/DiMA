@@ -27,7 +27,7 @@ This repository contains code and data associated with the paper:
 ├── gt_viz/                  # Ground truth visualizations for all datasets
 │   └── (exported images .png/.jpg)
 ├── sample_viz.py            # Script to generate ground truth visualizations
-└── DiMA_notebook.ipynb      # Interactive notebook implementing DiMAMamba
+└── DiMA.ipynb      # Interactive notebook implementing DiMAMamba
 ```
 
 ## Downloading the Datasets
