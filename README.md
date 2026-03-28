@@ -2,7 +2,7 @@
 
 This repository contains code and data associated with the paper:
 
-> **"A Differential Memory Attention Mamba for Spatial-Spectral Representation Learning toward Hyperspectral Image Classification"**, currently under review in *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (JSTAR)*. The source code will be publicly released upon acceptance of the paper.
+> **"A Differential Memory Attention Mamba for Spatial-Spectral Representation Learning toward Hyperspectral Image Classification"**, accepted in *IEEE ACCESS*. The source code will be publicly released upon acceptance of the paper.
 
 ## Repository Structure
 ```
