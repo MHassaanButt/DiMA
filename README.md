@@ -67,5 +67,5 @@ python sample_viz.py --dataset HH
 ## Interactive Notebook
 Open ``DiMA_notebook.ipynb`` to explore the full implementation of the DiMAMamba model, training loops, and evaluation pipelines.
 
-Note: This repository is under active development. Code and data organization may evolve upon paper acceptance.
+
 
